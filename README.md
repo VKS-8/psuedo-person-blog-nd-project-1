@@ -24,4 +24,4 @@ Create a design system that utilizes custom design with images, layout, and styl
 
 Deploy on github pages 
 --https://docs.github.com/en/pages/quickstart
---
+--vks-8.github.io
