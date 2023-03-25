@@ -22,3 +22,6 @@ Create a design system that utilizes custom design with images, layout, and styl
 --Blog homepage with navbar, blog post cards, images, buttons, footer
 --Blog post with header, author info, social sharing
 
+Deploy on github pages 
+--https://docs.github.com/en/pages/quickstart
+--
