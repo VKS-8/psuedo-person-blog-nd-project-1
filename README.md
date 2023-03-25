@@ -14,8 +14,8 @@ Create a design system that utilizes custom design with images, layout, and styl
 --Proper Directories and Files
 --Separation of concerns for HTML and CSS
 --CSS imports
---Typography 
---Colors
+--typography 
+--colors
 --images with caption
 --buttons
 --cards
