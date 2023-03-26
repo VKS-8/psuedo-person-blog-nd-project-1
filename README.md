@@ -37,3 +37,7 @@ Deploy on github pages
 Learn to format the `README.md` file with markdown
 https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 ```
+```
+Design System Checklist
+https://www.designsystemchecklist.com/category/design-language
+```
