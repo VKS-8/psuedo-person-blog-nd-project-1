@@ -1,0 +1,661 @@
+@import "mobile_styles_home.css";
+@import "low_resolution_home.css";
+/*---------------Andy Bell Reset etc code; it's beautiful, it works, yes! Fixed some of my issues----------*/
+/*---------------Go here to get the code:  https://piccalil.li/blog/a-modern-css-reset/ -------------------*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  border: px solid red;
+  margin: ;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*------My code starts here-----------*/
+:root {
+  --max-width: 960px;
+  --max-height: auto;
+  /* https://coolors.co/#84FFC9-#AAB2FF-#ECA0FF  */
+  --primary-color: #aab2ff; /*periwinkle blue*/
+  --secondary-color: #eca0ff; /* pink */
+  --tertiary-color: #84ffc9; /* sea-foam green*/
+  --background-color: #000; /* black */
+  --html-background-color: rgba(23, 2, 4, 75%);
+  --header-background-color: rgba(180, 217, 201, 0.5);
+
+  --primary-font: Nunito, san-serif;
+  --secondary-font: Raleway, san-serif;
+  --primary-font-color: #fff; /* white */
+  --secondary-font-color: #13162e; /* dark blue */
+
+  --nav-font-960px: 0.8rem;
+  --header-font: Monoton, san-serif;
+  --h1-font-size: 5rem;
+  --content-paragraph-font-size: 1rem;
+  --footer-font-960px: 0.7rem;
+  --legal-info-960px: 0.7rem;
+  --font-hover-960px: 1rem;
+
+  --cursor: pointer;
+
+  --letter-spacing: 0.05rem;
+
+  --container-box-shadow: 0 10px 5px 0 rgba(0, 0, 100, 0.5);
+  --container-border-bottom: 12px solid rgb(0, 100, 255);
+  --container-border-right: 3px solid rgb(0, 100, 150);
+  --container-border-bottom-right-radius: 20px;
+  --container-border-bottom-left-radius: 20px;
+  --container-border-radius: 20px;
+  --container-bottom-margin: 0 auto 1rem;
+}
+
+html {
+  background-image: url("https://github.com/VKS-8/psuedo-person-blog-nd-project-1/blob/main/Background_images/jeremy-thomas-4dpAqfTbvKA-unsplash.jpg?raw=true");
+}
+
+body {
+  display: grid;
+  grid-template-column: repeat(12, 1fr);
+  grid-template-row: auto;
+  grid-template-area:
+    "icon icon icon nav nav nav nav nav nav nav nav nav"
+    "main main main main main main main main main side side side"
+    "contact contact contact contact contact contact contact contact contact contact contact contact"
+    "ftr ftr ftr ftr ftr ftr ftr ftr ftr ftr ftr ftr"
+    "legal legal legal legal legal legal legal legal legal legal legal legal"
+    "si si si si si si si si si si si si";
+  max-width: var(--max-width);
+  max-height: var(--max-height);
+  font-family: var(--primary-font);
+  letter-spacing: var(--letter-spacing);
+  margin: 0 auto; /*centers content on page when limiting the page width*/
+  padding: 3rem 0;
+}
+
+a {
+  color: var(--secondary-font-color);
+}
+
+p {
+  font-size: var(--content-paragraph-font-size);
+}
+
+h1 {
+  position: relative;
+  top: -60%;
+  left: 10%;
+  z-index: 2;
+  color: var(--primary-font-color);
+  font: var(--header-font);
+  font-size: var(--h1-font-size);
+  background: var(--header-background-color);
+  border-radius: 3px;
+  width: 80%;
+  text-align: center;
+  /* The text-shadow code is from a codepen https://codepen.io/Indoote/pen/vVLqrX by Indrė Vasiliauskaitė.  I changed the colors.
+*/
+  text-shadow: 0 1px 0 #6400ff, 0 2px 0 #4900ba, 0 3px 0 #3d009c,
+    0 4px 0 #2c0070, 0 5px 0 #1c0047, 0 6px 0 #100029, 0 7px 5px #070012;
+}
+
+h2 {
+  margin: 0 0.75rem;
+  padding: 0 0 0 0.5rem;
+  font-family: var(--header-font);
+  color: var(--primary-font-color);
+  letter-spacing: 0.5rem;
+  height: 100%;
+  background: var(--header-background-color);
+  border-radius: 5px;
+}
+
+h4 {
+  margin: 1rem auto;
+}
+
+#navbar-container {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  margin: 0 auto; /* instead of left:0 use margin: 0 auto; to center nav on a page with a max-width; not sure why doing this on the body doesn't automatically  center to match main content*/
+  width: var(--max-width);
+  height: 11vh;
+  background: var(--tertiary-color);
+  box-shadow: var(--container-box-shadow);
+  border-bottom: var(--container-border-bottom);
+  border-right: var(--container-border-right);
+  border-bottom-right-radius: var(--container-border-bottom-right-radius);
+  border-bottom-left-radius: var(--container-border-bottom-left-radius);
+}
+
+#navbar-ul {
+  display: flex;
+  height: 11vh;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+
+  border: px solid red;
+}
+
+#navbar-ul li {
+  display: grid;
+  grid-area: nav;
+  margin: 0 auto; /*The margin and padding enable proper spacing of the logo and links*/
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid var(--secondary-font-color);
+  border-radius: 3px;
+}
+
+#navbar-ul a {
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: var(--cursor);
+}
+
+#navbar-ul a:hover {
+  box-shadow: 0 5px 8px 0 rgba(100, 0, 255, 0.8), 0 0 5px 0 rgb(200, 0, 255);
+  background: var(--secondary-color);
+}
+
+/* Removes the nav icon from the desktop screen */
+#navbar-ul i {
+  display: none;
+}
+
+/* Show the logo icon on the desktop screen  */
+#navbar-ul .logo-icon {
+  display: inline-grid;
+  grid-area: icon;
+  margin-right: auto;
+  padding: 0.25rem 0;
+  cursor: var(--cursor);
+
+  border: px solid red;
+}
+
+.active {
+  background: var(--secondary-color);
+}
+
+#theme-container .active {
+  background: var(--tertiary-color);
+}
+
+#hero-container {
+  margin: 1rem auto -5rem;
+  height: 67.75vh;
+  border-radius: 20px;
+}
+
+.hero-image {
+  margin: 5rem auto 0;
+  height: auto;
+  box-shadow: var(--container-box-shadow);
+  border-bottom: var(--container-border-bottom);
+  border-right: var(--container-border-right);
+  border-radius: var(--container-border-radius);
+}
+
+.theme-link {
+  margin: 0 1rem;
+  padding: 1rem;
+  background: var(--secondary-color);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-right: 2px solid ;
+  
+}
+
+#main-content-container {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  margin: var(--container-bottom-margin);
+  padding: 0 1rem;
+  display: grid;
+  grid-template-column: repeat(2, 1fr);
+  grid-template-row: auto;
+  grid-template-area:
+    "main-header"
+    "main side";
+  grid-gap: 1rem;
+  background: #fff;
+  box-shadow: var(--container-box-shadow);
+  border-bottom: var(--container-border-bottom);
+  border-right: var(--container-border-right);
+  border-radius: var(--container-border-radius);
+}
+
+#main-content-container h2 {
+  grid-area: main-header;
+  display: block;
+  height: 5rem;
+  margin: 1rem 0 3rem;
+  padding: 1.5rem;
+  color: var(--secondary-font-color);
+}
+
+#main-content {
+  grid-area: main;
+  display: flex;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-template-rows: auto;
+  grid-template-area: "card card card";
+  grid-gap: 1rem;
+  justify-content: space-between;
+  grid-area: main;
+  max-width: 100%;
+  height: fit-content;
+  margin: 7rem 0;
+}
+
+.main-card {
+  grid-area: card;
+  display: flex;
+  grid-gap: 1rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  min-width: 200px;
+  height: fit-content;
+  padding: 2%;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  background-color: #eee;
+  border: 1px solid var(--secondary-font-color);
+  box-shadow: 3px 5px 5px 0 rgba(30, 30, 30, 0.2),
+    2px 2px 0px 0px rgba(10, 10, 10, 0.2);
+  border-radius: 5px;
+}
+
+.main-card:hover {
+  background-color: #fff;
+  border: none;
+  z-index: 3;
+  transform: scale(
+    1.05
+  ); /* (200% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transition: transform 0.2s; /* Animation */
+  box-shadow: 3px 5px 5px 0 rgba(30, 30, 30, 0.2),
+    2px 2px 20px 0px rgba(10, 10, 10, 0.2);
+}
+
+.main-card-image {
+  grid-area: image;
+  min-width: 1rem;
+  height: fit-content;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 3px 5px 5px 0 rgba(30, 30, 30, 0.2),
+    2px 2px 20px 0px rgba(10, 10, 10, 0.2);
+}
+
+.transparent-fade-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: auto-fit;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 100%),
+    rgba(200, 200, 200, 50%)
+  );
+}
+
+.main-card-text-fade {
+  color: rgba(175, 175, 175, 70%);
+}
+
+#main-card-info {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-area:
+    "likes"
+    "link";
+  grid-gap: 1rem;
+  width: 20%;
+  padding: 1rem 2rem;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* Adding #main-card caused the content to format correctly */
+.main-card .material-icons {
+  grid-area: likes;
+}
+
+.material-icons:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+#main-card .main-card-link {
+  grid-area: link;
+}
+
+#main-card-info a {
+  text-decoration: none;
+}
+
+#main-card-info a:hover {
+  background: var(--header-background-color);
+  border-radius: 50px;
+  padding: 0.5rem 0.5rem;
+}
+
+.main-card-description {
+  margin: 0.5rem 0 0;
+}
+
+.main-card-book-title,
+.main-card-author {
+  font-weight: bold;
+}
+
+#side-content {
+  grid-area: side;
+  position: relative;
+  top: 0;
+  right: 0;
+  grid-area: side;
+  max-width: 20%;
+  height: auto;
+  padding: 0;
+  text-align: start;
+  background: var(--header-background-color);
+  border: 1px solid var(--secondary-font-color);
+  border-radius: 5px;
+}
+
+#side-ul li,
+a {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#side-ul li {
+  padding: 0.25rem 0.5rem;
+}
+
+#side-ul li:hover {
+  background: #fff;
+}
+
+#side-content .list-divider {
+  border: 1px solid #fff;
+}
+
+#contact {
+  margin: var(--container-bottom-margin);
+  padding: 1rem;
+  background: var(--primary-color);
+  box-shadow: var(--container-box-shadow);
+  border-bottom: var(--container-border-bottom);
+  border-right: var(--container-border-right);
+  border-radius: var(--container-border-radius);
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  border-radius: 5px;
+  margin: 1rem 0.5rem 0.5rem 0;
+  padding-left: 0.5rem;
+  border: none;
+}
+
+textarea {
+  width: 100%;
+  height: auto;
+  resize: vertical; /* Set to none because it was changing the size of the container */
+  padding: 2% 0 0 2%;
+  border-radius: 5px;
+}
+
+#submit {
+  margin: 0 45%; /*not sure why % works but auto doesn't....*/
+  background: var(--secondary-color);
+  color: var(--secondary-font-color);
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 100, 0.5), 0 4px 8px 0 rgb(0, 100, 255);
+  border-bottom: 3px solid rgb(0, 100, 255);
+  border-right: 1px solid rgb(0, 100, 255);
+}
+
+#submit:hover {
+  background: var(--tertiary-color);
+  color: var(--secondary-font-color);
+  /*   box-shadow: 0 8px 8px 0 rgba(0, 0, 150, 0.5), 0 8px 20px 0 rgb(0, 200, 100); */
+  border: 1px;
+  margin: 3px 45% 0;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 100, 0.5), 0 2px 2px 0 rgb(0, 100, 255);
+}
+
+form input[type="submit"] {
+  margin: 0 auto;
+  text-align: center;
+  cursor: var(--cursor);
+  border: none;
+}
+
+footer {
+  grid-area: ftr;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-row: auto;
+  grid-template-area: "ftr-col1 ftr-col1 ftr-col1 ftr-col2 ftr-col2 ftr-col2 ftr-col3 ftr-col3 ftr-col3 ftr-col4 ftr-col4 ftr-col4";
+  grid-gap: 21%; /*not finding the target to justify content evenly or to widen the columns for some reason*/
+  margin: var(--container-bottom-margin);
+  padding: 0 2rem;
+
+  height: 40vh;
+
+  background: var(--tertiary-color);
+
+  color: var(--secondary-font-color);
+
+  box-shadow: var(--container-box-shadow);
+  border-bottom: var(--container-border-bottom);
+  border-right: var(--container-border-right);
+  border-radius: var(--container-border-radius);
+}
+
+.ftr-cols {
+  margin: 1rem auto;
+  padding: 0;
+  width: 100%;
+
+  border: px solid #e625cf;
+}
+
+.ftrUL {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.ftrLink {
+  list-style-type: none;
+  margin: 0.25rem auto;
+  padding: 0.1rem;
+  line-height: 1rem;
+  letter-spacing: 0.15rem;
+  text-align: start;
+  width: 100%;
+  font-size: var(--footer-font-960px);
+  cursor: var(--cursor);
+}
+
+.ftrLink a:hover {
+  color: var(--secondary-color);
+}
+
+#ftr-col1 {
+  grid-area: ftr-col1;
+  border: px solid black;
+}
+
+#ftr-col2 {
+  grid-area: ftr-col2;
+}
+
+#ftr-col3 {
+  grid-area: ftr-col3;
+}
+
+#ftr-col4 {
+  grid-area: ftr-col3;
+}
+
+#legal {
+  diplay: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 1rem;
+  justify-content: space-evenly;
+  background: var(--html-background);
+
+  border: px solid red;
+}
+
+.legalInfo {
+  grid-area: legal;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  background: var(--primary-color);
+  font-size: var(--legal-info-960px);
+  border-radius: 30px;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.legalInfo:hover {
+  border: 2px solid #fff;
+}
+
+.legalUL {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  justify-content: space-evenly;
+  background: var(--primary-color);
+  color: var(--primary-font-color);
+  letter-spacing: 0.25rem;
+  border-radius: 30px;
+}
+
+#social-icons {
+  grid-area: si;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 0.25rem 0;
+  background: var(--primary-color);
+  border-radius: 30px;
+  opacity: 75%;
+}
+
+#social-icons a {
+  color: var(--secondary-font-color);
+  padding: 0 0.5rem; /*stops the page from bouncing when the link is hovered over*/
+}
+
+#social-icons a:hover {
+  color: var(--primary-font-color);
+  padding: 0 0.45rem;
+  letter-spacing: 0.15rem; /* reduces the size of the link when the border is added on hover */
+}
+
+/* ------------- Media queries ----------------- */
+
+@media only screen and (max-width: 450px) {
+  #hero-container {
+    height: 10vh;
+  }
+}
