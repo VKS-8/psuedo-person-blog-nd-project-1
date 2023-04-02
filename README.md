@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Psuedo-personal-blog
 Udacity Nanodegree project 1
 
@@ -43,10 +43,4 @@ Design System Checklist
 https://www.designsystemchecklist.com/category/design-language
 https://atomicdesign.bradfrost.com/table-of-contents/
 app.zeplin.io
-```
-```
-Create Favicon.ico
-Use 3D Paint to create PNG
-Convert to icon with this converter: 
-https://www.icoconverter.com/
 ```
