@@ -1,5 +1,5 @@
-@import "mobile_styles_home.css";
-@import "low_resolution_home.css";
+@import "mobile_style_blog_posts";
+@import "low_resolution_blog_posts";
 /*---------------Andy Bell Reset etc code; it's beautiful, it works, yes! Fixed some of my issues----------*/
 /*---------------Go here to get the code:  https://piccalil.li/blog/a-modern-css-reset/ -------------------*/
 
@@ -10,7 +10,7 @@
   box-sizing: border-box;
 
   border: px solid red;
-  margin: ;
+  margin: 0;
 }
 
 /* Remove default margin */
@@ -160,7 +160,7 @@ h1 {
   font-size: var(--h1-font-size);
   background: var(--header-background-color);
   border-radius: 3px;
-  width: 80%;
+  max-width: 80%;
   text-align: center;
   /* The text-shadow code is from a codepen https://codepen.io/Indoote/pen/vVLqrX by Indrė Vasiliauskaitė.  I changed the colors.
 */
@@ -231,6 +231,10 @@ h4 {
   background: var(--secondary-color);
 }
 
+#navbar-ul a:active {
+  background: var(--secondary-color);
+}
+
 /* Removes the nav icon from the desktop screen */
 #navbar-ul i {
   display: none;
@@ -290,7 +294,7 @@ h4 {
   grid-area: main-header;
   display: block;
   height: 5rem;
-  margin: 1rem 0 3rem;
+  margin: 1rem 0 0;
   padding: 1.5rem;
   color: var(--secondary-font-color);
 }
@@ -319,25 +323,10 @@ h4 {
   min-width: 200px;
   height: fit-content;
   padding: 2%;
-  margin-bottom: 1rem;
   justify-content: space-between;
   background-color: #eee;
   border: 1px solid var(--secondary-font-color);
-  box-shadow: 3px 5px 5px 0 rgba(30, 30, 30, 0.2),
-    2px 2px 0px 0px rgba(10, 10, 10, 0.2);
   border-radius: 5px;
-}
-
-.main-card:hover {
-  background-color: #fff;
-  border: none;
-  z-index: 3;
-  transform: scale(
-    1.05
-  ); /* (200% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  transition: transform 0.2s; /* Animation */
-  box-shadow: 3px 5px 5px 0 rgba(30, 30, 30, 0.2),
-    2px 2px 20px 0px rgba(10, 10, 10, 0.2);
 }
 
 .main-card-image {
@@ -349,65 +338,6 @@ h4 {
     2px 2px 20px 0px rgba(10, 10, 10, 0.2);
 }
 
-.transparent-fade-overlay {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: auto-fit;
-  border-radius: 5px;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 100%),
-    rgba(200, 200, 200, 50%)
-  );
-}
-
-.main-card-text-fade {
-  color: rgba(175, 175, 175, 70%);
-}
-
-#main-card-info {
-  grid-area: info;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-area:
-    "likes"
-    "link";
-  grid-gap: 1rem;
-  width: 20%;
-  padding: 1rem 2rem;
-  align-items: center;
-  justify-content: center;
-  background: #ddd;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-/* Adding #main-card caused the content to format correctly */
-.main-card .material-icons {
-  grid-area: likes;
-}
-
-.material-icons:hover {
-  color: var(--secondary-color);
-  cursor: pointer;
-}
-
-#main-card .main-card-link {
-  grid-area: link;
-}
-
-#main-card-info a {
-  text-decoration: none;
-}
-
-#main-card-info a:hover {
-  background: var(--header-background-color);
-  border-radius: 50px;
-  padding: 0.5rem 0.5rem;
-}
-
 .main-card-description {
   margin: 0.5rem 0 0;
 }
@@ -415,6 +345,11 @@ h4 {
 .main-card-book-title,
 .main-card-author {
   font-weight: bold;
+}
+
+.book-genre a:hover,
+.publisher-link:hover {
+  color: #ccc;
 }
 
 #side-content {
@@ -540,6 +475,7 @@ footer {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  border: px solid green;
 }
 
 .ftrLink {
@@ -552,6 +488,8 @@ footer {
   width: 100%;
   font-size: var(--footer-font-960px);
   cursor: var(--cursor);
+
+  border: px solid yellow;
 }
 
 .ftrLink a:hover {
@@ -590,11 +528,12 @@ footer {
   grid-area: legal;
   margin: 0;
   padding: 0.5rem 0.75rem;
-  background: var(--primary-color);
+  background: var(--secondary-color2);
   font-size: var(--legal-info-960px);
   border-radius: 30px;
   cursor: pointer;
   list-style-type: none;
+  border: px solid red;
 }
 
 .legalInfo:hover {
@@ -611,6 +550,8 @@ footer {
   color: var(--primary-font-color);
   letter-spacing: 0.25rem;
   border-radius: 30px;
+
+  border: px solid yellow;
 }
 
 #social-icons {
@@ -624,6 +565,8 @@ footer {
   background: var(--primary-color);
   border-radius: 30px;
   opacity: 75%;
+
+  border: px solid red;
 }
 
 #social-icons a {
